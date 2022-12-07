@@ -1,4 +1,4 @@
-package com.example.taskmaster;
+package com.example.taskmaster.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.taskmaster.R;
 
 public class AddTaskActivity extends AppCompatActivity {
 

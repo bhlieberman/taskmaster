@@ -1,9 +1,11 @@
-package com.example.taskmaster;
+package com.example.taskmaster.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.taskmaster.R;
 
 public class AllTasksActivity extends AppCompatActivity {
 

@@ -1,10 +1,12 @@
-package com.example.taskmaster;
+package com.example.taskmaster.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum;
 
 import android.os.Bundle;
 import android.widget.EditText;
+
+import com.example.taskmaster.R;
 
 public class TaskDetailActivity extends AppCompatActivity {
 
