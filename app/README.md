@@ -2,7 +2,7 @@
 
 This is a simple app for making a todo list.
 
-See home page here: ![Home page](../screenshots/home-page-lab-27.png)
+See home page here: ![Home page](../screenshots/home-page-lab-28.png)
 
 ## Changelog
 
