@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS tasks (
+id INTEGER PRIMARY KEY,
+title text NOT NULL,
+body text,
+state text CHECK(state in ('NEW', 'IN_PROGRESS', 'ASSIGNED', 'COMPLETED')
+);
+
+INSERT INTO tasks VALUES(1, 'Finish Code Fellows', null, 'IN_PROGRESS');
+INSERT INTO tasks VALUES(2, 'Find a job', 'Look in New York City', 'NEW');
+INSERT INTO tasks VALUES(3, 'Get hired', 'The easy part, right?', 'ASSIGNED');
+INSERT INTO tasks VALUES(4, 'Move back to NYC', 'Speaks for itself', 'NEW');
+INSERT INTO tasks VALUES(5, 'Make some decent money for a change', null, 'ASSIGNED');

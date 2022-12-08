@@ -37,11 +37,11 @@ public class TaskRecyclerViewViewAdapter extends RecyclerView.Adapter<TaskRecycl
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        TextView superPetFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragTVTitle);
+        TextView TaskFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragTVTitle);
         String taskName= tasks.get(position).getTitle();
-        superPetFragmentTextViewName.setText(position + ". " + taskName);
-        View superPetItemView = holder.itemView;
-        superPetItemView.setOnClickListener(v -> {
+        TaskFragmentTextViewName.setText(position + ". " + taskName);
+        View TaskItemView = holder.itemView;
+        TaskItemView.setOnClickListener(v -> {
             Intent goToAllTasksView = new Intent(callingActivity, MainActivity.class);
             goToAllTasksView.putExtra(MainActivity.TASK_NAME_TAG, taskName);
             callingActivity.startActivity(goToAllTasksView);
