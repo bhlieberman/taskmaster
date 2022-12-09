@@ -10,6 +10,9 @@
         android:id="@+id/TaskFragTVTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/blank_task_fragment"
+        android:textColor="@color/primaryLightColor"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
 </FrameLayout>
