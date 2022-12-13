@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taskmaster.R;
 import com.example.taskmaster.activities.MainActivity;
-import com.example.taskmaster.models.Task;
+import com.amplifyframework.datastore.generated.model.Task;
 
 import java.util.List;
 
@@ -37,13 +37,13 @@ public class TaskRecyclerViewViewAdapter extends RecyclerView.Adapter<TaskRecycl
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        TextView TaskFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragTVTitle);
-        String taskName= tasks.get(position).getTitle();
-        TaskFragmentTextViewName.setText(position + ". " + taskName);
+        TextView TaskFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragmentTextView);
+        String taskName= tasks.get(position).getName();
+        TaskFragmentTextViewName.setText((position + 1) + ". " + taskName);
         View TaskItemView = holder.itemView;
         TaskItemView.setOnClickListener(v -> {
             Intent goToAllTasksView = new Intent(callingActivity, MainActivity.class);
-            goToAllTasksView.putExtra(MainActivity.TASK_NAME_TAG, taskName);
+            goToAllTasksView.putExtra(MainActivity.TAG, taskName);
             callingActivity.startActivity(goToAllTasksView);
         });
     }

@@ -1,22 +1,13 @@
 package com.example.taskmaster.models;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-@Entity
 public class Task {
-    @PrimaryKey
     public int id;
-    @ColumnInfo(name= "title")
-    public String title;
-    @ColumnInfo(name = "body")
-    public String body;
-    @ColumnInfo(name = "state")
+    public String name;
+    public String description;
     public State state;
 
     public String getTitle() {
-        return this.title;
+        return this.name;
     }
 
     public enum State {
@@ -26,10 +17,10 @@ public class Task {
         COMPLETE
     }
 
-    public Task(int id, String title, String body, State state) {
+    public Task(int id, String title, String description, State state) {
         this.id = id;
-        this.title = title;
-        this.body = body;
+        this.name = title;
+        this.description = description;
         this.state = state;
     }
 }
