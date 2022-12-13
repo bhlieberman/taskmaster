@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setUpRecyclerView();
-
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (prefs.contains("username")) {
@@ -42,24 +40,7 @@ public class MainActivity extends AppCompatActivity {
         goToSettings();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setUpRecyclerView();
-    }
-
-
-    public void setUpRecyclerView() {
-        List<Task> tasks = new ArrayList<>();
-
-        RecyclerView taskRV = findViewById(R.id.TaskRecyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        taskRV.setLayoutManager(layoutManager);
-        TaskRecyclerViewViewAdapter adapter = new TaskRecyclerViewViewAdapter(tasks);
-        taskRV.setAdapter(adapter);
-    }
-
-    public void goToAllTasks() {
+    private void goToAllTasks() {
         MainActivity
                 .this
                 .findViewById(R.id.MainActivityAllTasksButton)
@@ -69,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void goToAddTasks() {
+    private void goToAddTasks() {
         MainActivity
                 .this
                 .findViewById(R.id.MainActivityAddTaskButton).setOnClickListener(v -> {
@@ -79,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void goToSettings() {
+    private void goToSettings() {
         this.findViewById(R.id.SettingsButton)
                 .setOnClickListener(view -> {
                     Intent goToSettingsActivity = new Intent(this, SettingsActivity.class);

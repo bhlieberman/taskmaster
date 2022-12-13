@@ -1,6 +1,8 @@
 package com.example.taskmaster.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +19,8 @@ import java.util.List;
 
 public class AllTasksActivity extends AppCompatActivity {
     private final List<Task> tasks = new ArrayList<>();
-    TaskRecyclerViewViewAdapter adapter = new TaskRecyclerViewViewAdapter(tasks);
-    public static final String TAG = "allTasks";
+    TaskRecyclerViewViewAdapter adapter;
+    private static final String TAG = "allTasks";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,13 @@ public class AllTasksActivity extends AppCompatActivity {
                     for (Task databaseTask : success.getData()) {
                         tasks.add(databaseTask);
                     }
-                    runOnUiThread(() -> adapter.notifyDataSetChanged()); // since this runs asynchronously, the adapter may already have rendered, so we have to tell it to update
+                    runOnUiThread(() -> adapter.notifyDataSetChanged());
 
                 },
                 failure -> Log.e(TAG, "Failed to read Tasks from database")
         );
+
+        setUpRecyclerView();
 
         AllTasksActivity
                 .this
@@ -45,5 +49,13 @@ public class AllTasksActivity extends AppCompatActivity {
                     Intent goBackToMainActivity = new Intent(this, MainActivity.class);
                     startActivity(goBackToMainActivity);
                 });
+    }
+
+    private void setUpRecyclerView() {
+        RecyclerView taskRV = findViewById(R.id.TaskRecyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        taskRV.setLayoutManager(layoutManager);
+        adapter = new TaskRecyclerViewViewAdapter(tasks, this);
+        taskRV.setAdapter(adapter);
     }
 }

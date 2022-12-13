@@ -22,9 +22,9 @@ public class TaskRecyclerViewViewAdapter extends RecyclerView.Adapter<TaskRecycl
     List<Task> tasks;
     Context callingActivity;
 
-    public TaskRecyclerViewViewAdapter(List<Task> tasks) {
+    public TaskRecyclerViewViewAdapter(List<Task> tasks, Context callingActivity) {
         this.tasks = tasks;
-        //this.callingActivity = callingActivity;
+        this.callingActivity = callingActivity;
     }
 
     @NonNull
@@ -37,7 +37,7 @@ public class TaskRecyclerViewViewAdapter extends RecyclerView.Adapter<TaskRecycl
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        TextView TaskFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragTVTitle);
+        TextView TaskFragmentTextViewName = holder.itemView.findViewById(R.id.TaskFragmentTextView);
         String taskName= tasks.get(position).getName();
         TaskFragmentTextViewName.setText((position + 1) + ". " + taskName);
         View TaskItemView = holder.itemView;
