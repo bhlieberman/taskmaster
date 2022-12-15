@@ -30,7 +30,7 @@ public class AllTasksActivity extends AppCompatActivity {
         Amplify.API.query(
                 ModelQuery.list(Task.class),
                 success -> {
-                    Log.i(TAG, "Read Super Pets successfully");
+                    Log.i(TAG, "Read Tasks table successfully");
                     for (Task databaseTask : success.getData()) {
                         tasks.add(databaseTask);
                     }
