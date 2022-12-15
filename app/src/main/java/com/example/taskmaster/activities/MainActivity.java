@@ -1,15 +1,21 @@
 package com.example.taskmaster.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +25,8 @@ import com.example.taskmaster.R;
 import com.example.taskmaster.adapters.TaskRecyclerViewViewAdapter;
 import com.amplifyframework.datastore.generated.model.Task;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +55,11 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.MainActivityAddTaskButton).setVisibility(View.GONE);
                     findViewById(R.id.MainActivityAllTasksButton).setVisibility(View.GONE);
                     findViewById(R.id.LogoutButton).setVisibility(View.GONE);
-                    findViewById(R.id.signInBttnSignInMain).setVisibility(View.VISIBLE);
-                    findViewById(R.id.signUpbttnSignUpMain).setVisibility(View.VISIBLE);
+                    runOnUiThread(() -> {
+                        findViewById(R.id.signInBttnSignInMain).setVisibility(View.VISIBLE);
+                        findViewById(R.id.signUpbttnSignUpMain).setVisibility(View.VISIBLE);
+                    });
+
                     goToLogIn();
                     goToSignUp();
                 });
@@ -122,5 +133,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(goToSettingsActivity);
                 });
     }
+
 
 }
