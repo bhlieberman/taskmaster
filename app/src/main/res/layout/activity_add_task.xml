@@ -10,7 +10,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="52dp"
         android:text="@string/add_task_title"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:id="@+id/AddTaskActivityTaskNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="124dp"
         android:ems="10"
         android:hint="Task name"
         android:inputType="textPersonName"
@@ -35,7 +35,7 @@
         android:id="@+id/AddTaskActivityTaskDescriptionEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="204dp"
         android:ems="10"
         android:hint="task description"
         android:inputType="textPersonName"
@@ -66,8 +66,29 @@
         android:maxWidth="150dp"
         app:layout_constraintBottom_toTopOf="@+id/AddTaskActivityAddTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskActivityTaskDescriptionEditText"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.183" />
+
+    <Button
+        android:id="@+id/AddImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="7dp"
+        android:text="Add image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/AddImageView"
+        android:layout_width="94dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddTaskActivityAddTaskButton"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
